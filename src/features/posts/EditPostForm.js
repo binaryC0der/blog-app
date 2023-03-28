@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-
-import { updatePost } from "./postSlice";
+import { deletePost, updatePost } from "./postSlice";
 import { selectAllUsers } from "../users/userSlice";
 import { selectPostById } from "./postSlice";
 import { useNavigate, useParams } from "react-router-dom";
@@ -55,8 +54,6 @@ const {postId} = useParams();
         setRequestStatus('idle');
       }
     }
-
-
   };
 
   const userOptions = users.map(user => (
@@ -65,6 +62,22 @@ const {postId} = useParams();
     </option>
   ))
 
+  const onDeletePostClicked = () => {
+    try {
+        setRequestStatus('pending')
+        dispatch(deletePost({id:post.id})).unwrap();
+
+        setTitle("");
+        setContent("");
+        setUserId("");
+        navigate("/");
+    } catch (error) {
+        console.error("Failed to delete the post",error);
+    }
+    finally{
+        setRequestStatus('idle');
+    }
+  }
 
   return (
     <section>
@@ -90,6 +103,7 @@ const {postId} = useParams();
           onChange={onContentChange}
         ></textarea>
         <button type="Submit" disabled={!canSave}>Submit</button>
+        <button className="deleteButton" type="button" onClick={onDeletePostClicked}>Delete Post</button>
       </form>
     </section>
   );

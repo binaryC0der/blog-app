@@ -1,12 +1,6 @@
 {
   "posts": [
     {
-      "id": "1",
-      "title": "Naruto Shipudden",
-      "content": "I am the guy who goes into enemy territory and says you are surrounded",
-      "userId": "1"
-    },
-    {
       "id": "2",
       "title": "Naruto Shipudden",
       "content": "I was born as a genuis, lived as a villain, died as a HERO",
@@ -17,6 +11,12 @@
       "content": "This world is cruel, but still I will love you. Even if I sacrifice everything,I will protect you!",
       "userId": "2",
       "id": "iJG7Dvj"
+    },
+    {
+      "title": "Naruto Shipudden",
+      "content": "I go into enemy territory and say you are all surrounded!",
+      "userId": "1",
+      "id": "a8-A73E"
     }
   ],
   "users": [
