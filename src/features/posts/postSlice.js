@@ -73,7 +73,7 @@ const postSlice = createSlice({
         post.date = sub(new Date(),{minutes:min++}).toISOString();
         return post;
       })     
-      state.posts = loadedPosts;
+      state.posts = state.posts.concat(loadedPosts);
     })
     .addCase(fetchPosts.rejected,(state,action)=>{
       state.status = 'failed';
