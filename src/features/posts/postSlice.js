@@ -24,6 +24,13 @@ export const addNewPost = createAsyncThunk("posts/addNewPost", async (initialPos
 
 });
 
+export const updatePost = createAsyncThunk("posts/updatePost", async (initialPost) => {
+  const {id} = initialPost;
+    const response = await axios.put(`${POSTS_URL}/${id}`,initialPost)
+    return response.data;
+
+});
+
 const postSlice = createSlice({
   initialState,
   name: "posts",
@@ -66,8 +73,17 @@ const postSlice = createSlice({
     })
     .addCase(addNewPost.fulfilled,(state,action) => {
       action.payload.date = new Date().toISOString();
-      console.log(action.payload);
       state.posts.push(action.payload);
+    })
+    .addCase(updatePost.fulfilled,(state,action) => {
+      if(!action.payload?.id){
+        console.log("Update could not complete");
+        return;
+      }
+      const {id} = action.payload;
+      action.payload.date = new Date().toISOString();
+      const posts = state.posts.filter(post => post.id!==id);
+      state.posts = [...posts,action.payload];
     })
   }
 });
@@ -75,6 +91,10 @@ const postSlice = createSlice({
 export const selectAllPosts = (state) => state.posts.posts;
 export const getPostsStatus = (state) => state.posts.status;
 export const getPostsError = (state) => state.posts.error;
+export const selectPostById = (state,id) => {
+  const post = state.posts.posts.find(post => post.id === id);
+  return post;
+}
 
 export const { addPost } = postSlice.actions;
 export default postSlice.reducer;
