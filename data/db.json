@@ -1,0 +1,36 @@
+{
+  "posts": [
+    {
+      "id": "1",
+      "title": "Naruto Shipudden",
+      "content": "I am the guy who goes into enemy territory and says you are surrounded",
+      "userId": "1"
+    },
+    {
+      "id": "2",
+      "title": "Naruto Shipudden",
+      "content": "I was born as a genuis, lived as a villain, died as a HERO",
+      "userId": "0"
+    },
+    {
+      "title": "AOT",
+      "content": "This world is cruel, but still I will love you. Even if I sacrifice everything,I will protect you!",
+      "userId": "2",
+      "id": "iJG7Dvj"
+    }
+  ],
+  "users": [
+    {
+      "name": "Itachi Uchiha",
+      "id": "0"
+    },
+    {
+      "name": "Madara Uchiha",
+      "id": "1"
+    },
+    {
+      "name": "Eren Yaeger",
+      "id": "2"
+    }
+  ]
+}

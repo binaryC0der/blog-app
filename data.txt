@@ -1,0 +1,2 @@
+This world is cruel, but still I will love you. Even if I sacrifice everything,I will protect you!
+npx json-server -p 3500 -w data/db.json
